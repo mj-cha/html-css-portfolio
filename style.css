@@ -1,0 +1,100 @@
+/* CSS 변수 (다크 모드 및 공통 색상 테마 관리) */
+:root {
+    --bg-color: #ffffff; /* 기본 배경색 (흰색) */
+    --text-color: #111111; /* 기본 글자색 (검정) */
+    --card-bg: #f9f9f9; /* 카드 배경색 (밝은 회색) */
+    --accent-color: #0b6fb8; /* 포인트 색상 */
+}
+
+/* 기본 문서 설정 */
+body {
+    background-color: var(--bg-color); /* 배경색 변수 적용 */
+    color: var(--text-color); /* 글자색 변수 적용 */
+    margin: 0; /* 브라우저 기본 여백 제거 */
+    font-family: 'Noto Sans KR', sans-serif; /* 기본 폰트 설정 */
+}
+
+/* 네비게이션 가로 정렬 */
+.gnb ul {
+    display: flex; /* 가로 배치 */
+    justify-content: center; /* 가운데 정렬 */
+    gap: 20px; /* 메뉴 간격 20px */
+    list-style: none; /* 리스트 기본 불릿(●) 제거 */
+    padding: 20px;
+    margin: 0;
+}
+
+.gnb a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: var(--text-color); /* 텍스트 색상 변수 적용 */
+    font-weight: bold;
+}
+
+/* 프로필 이미지 원형 처리 */
+.profile-img {
+    border-radius: 50%; /* 완전한 원형 처리 */
+    margin-bottom: 20px;
+}
+
+/* 첫 번째 소개 섹션 */
+.intro {
+    display: flex; /* Flexbox 적용 */
+    /* [미션 1] 화면 전체 높이 설정 (vh 활용) */
+    height: 100vh; /* 뷰포트 높이 100% 꽉 채움 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    background-color: var(--card-bg); /* 배경색 변수 적용 */
+}
+
+/* 두 번째 섹션(스택 및 취미) 공통 여백 */
+.section-projects, .section-custom {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* 카드 그리드 배치 */
+.grid-container {
+    display: flex; /* 가로 배치 */
+    justify-content: center; /* 가운데 정렬 */
+    gap: 20px;
+    flex-wrap: wrap; /* 영역 부족 시 줄바꿈 처리(반응형) */
+    margin-top: 30px;
+}
+
+.project-card {
+    /* [미션 2] 배경색 변수 적용 및 둥근 테두리 설정 */
+    background-color: var(--card-bg); /* 다크 모드 연동 변수 */
+    border-radius: 12px; /* 테두리 곡률 12px */
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* 그림자 효과 */
+    transition: transform 0.3s ease; /* 0.3초 애니메이션 트랜지션 */
+    width: 300px; /* 기본 너비 고정 */
+}
+
+.project-card:hover {
+    /* [미션 3] 마우스 오버 시 위로 떠오르는 효과 */
+    transform: translateY(-10px); /* Y축 기준 위로 10px 이동 */
+}
+
+/* 링크 색상 지정 */
+a {
+    color: var(--accent-color); /* 포인트 색상 적용 */
+}
+
+/* 푸터 영역 */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--card-bg);
+}
+
+/* 다크 모드 설정 (OS 테마 감지) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212; /* 다크 모드 배경색 */
+        --text-color: #f1f1f1; /* 다크 모드 글자색 */
+        --card-bg: #1e1e1e; /* 다크 모드 카드 배경색 */
+        --accent-color: #4fd3c4; /* 다크 모드 포인트 색상 */
+    }
+}
